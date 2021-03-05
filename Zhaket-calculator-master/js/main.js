@@ -7,9 +7,9 @@ window.addEventListener("load", function () {
     // open box
     document.querySelector('.buy-form .submit > span').addEventListener('click', async () => {
         document.querySelector("#__APP > div > div > div.css-12zxtqt > div > div.css-1txw6ev > div.css-1gfgxlv > div > div > span").click();
-        document.querySelector("input[name='stopPrice']").value = '20';
-        document.querySelector("input[name='quantity']").value = '20';
-        document.querySelector('#orderformSellBtn').parentElement.closest("form").submit();
+        document.getElementById('FormRow-SELL-stopPrice').value = '20';
+        document.getElementById('FormRow-SELL-quantity').value = '4';
+        document.querySelector('#orderformSellBtn').click();
     });
     document.querySelector('.robot-binance-popup').addEventListener('click', async () => {
 
