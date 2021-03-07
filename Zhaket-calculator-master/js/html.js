@@ -25,7 +25,7 @@ window.htmlToolBox = () => {
         </div>
         <div class="stop">
             <span>درصد استاپ</span>
-            <input type="number">
+            <input type="number" id="myStopAfterBuy">
         </div>
         <div class="submit"><span>خرید</span></div>
      </div>

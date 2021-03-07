@@ -8,8 +8,15 @@ window.addEventListener("load", function () {
     document.querySelector('.buy-form .submit > span').addEventListener('click', async () => {
         document.querySelector("#__APP > div > div > div.css-12zxtqt > div > div.css-1txw6ev > div.css-1gfgxlv > div > div > span").click();
         document.getElementById('FormRow-SELL-stopPrice').value = '20';
+        document.getElementById('FormRow-SELL-stopLimitPrice').value = '19';
+        let myPercent = Math.floor(document.getElementById('myStopAfterBuy').value) / 100;
+        let myAllVal = document.querySelector("#__APP > div > div > div.css-12zxtqt > div > div.css-3j2kqe > div:nth-child(2) > div > div.css-1mcmbgc > span").textContent;
+        myAllVal = Math.floor(myAllVal.replace(/[^0-9]+/ig,""));
         document.getElementById('FormRow-SELL-quantity').value = '4';
         document.querySelector('#orderformSellBtn').click();
+        setTimeout(()=>{
+            // document.querySelector("body > div.css-qx1kp5 > div > div.modal-footer > div > button.css-s7ibtx").click();
+        },200)
     });
     document.querySelector('.robot-binance-popup').addEventListener('click', async () => {
 
