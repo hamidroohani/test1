@@ -82,31 +82,34 @@ window.addEventListener("load", function () {
     }
 
     function setStop(valueToBuy){
-        console.log(valueToBuy);
+        console.log('valueToBuy:'+valueToBuy);
         if (valueToBuy)
         {
             let newMyAllVal = document.querySelector("#__APP > div > div > div.css-12zxtqt > div > div.css-3j2kqe > div:nth-child(2) > div > div.css-1mcmbgc > span").textContent;
             newMyAllVal = Math.abs(newMyAllVal.replace(/[^0-9.]+/ig,""));
-            console.log(newMyAllVal - myAllVal);
+            console.log('mines:'+ (newMyAllVal - myAllVal));
             console.log("df");
             if ((newMyAllVal - myAllVal) > (valueToBuy * .9))
             {
-                let myPercent = Math.abs(document.getElementById('myStopAfterBuy').value) / 100;
-
-                document.querySelector("#__APP > div > div > div.css-12zxtqt > div > div.css-1txw6ev > div.css-1gfgxlv > div > div > span").click();
-                document.getElementById('FormRow-SELL-quantity').value = newMyAllVal;
-                let nowPrice = document.querySelector('.contractPrice');
-                if (nowPrice)
-                {
-                    nowPrice = nowPrice.textContent;
-                    nowPrice = nowPrice * myPercent;
-                }
-                document.getElementById('FormRow-SELL-stopPrice').value = nowPrice;
-                document.getElementById('FormRow-SELL-stopLimitPrice').value = nowPrice;
-                document.querySelector('#orderformSellBtn').click();
                 setTimeout(()=>{
-                    // document.querySelector("body > div.css-qx1kp5 > div > div.modal-footer > div > button.css-s7ibtx").click();
-                },200)
+                    let myPercent = Math.abs(document.getElementById('myStopAfterBuy').value) / 100;
+
+                    document.querySelector("#__APP > div > div > div.css-12zxtqt > div > div.css-1txw6ev > div.css-1gfgxlv > div > div > span").click();
+                    let nowPrice = document.querySelector('.contractPrice');
+                    if (nowPrice)
+                    {
+                        nowPrice = nowPrice.textContent;
+                        // nowPrice = nowPrice * myPercent;
+                    }
+                    console.log('nowPrce:' + nowPrice);
+                    document.getElementById('FormRow-SELL-stopPrice').value = nowPrice;
+                    document.getElementById('FormRow-SELL-stopLimitPrice').value = nowPrice;
+                    document.getElementById('FormRow-SELL-quantity').value = (newMyAllVal-1);
+                    document.querySelector('#orderformSellBtn').click();
+                    setTimeout(()=>{
+                        // document.querySelector("body > div.css-qx1kp5 > div > div.modal-footer > div > button.css-s7ibtx").click();
+                    },200);
+                },200);
             }
         }
 
